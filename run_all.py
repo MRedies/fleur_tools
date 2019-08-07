@@ -5,8 +5,10 @@ import os
 from termcolor import colored
 
 def run_fleur():
-    fleur = '/Users/redies/fleur/build/fleur_MPI'
-    ret_code = sp.call([fleur, "-trace"])
+    fleur = '/Users/redies/fleur/build.mpiifort/fleur'
+
+    ret_code = sp.call(["mpirun", "-np", "4", '/Users/redies/fleur/build.mpiifort/fleur_MPI', "-trace"])
+    # ret_code = sp.call([fleur, "-trace"])
     print("ret_code = {}".format(ret_code))
 
 head_fol = os.getcwd()

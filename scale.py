@@ -43,7 +43,7 @@ for scfloop in root.iter("scfLoop"):
 
 
 for s in scale:
-    for bulklat in root.iter("bulkLattice"):
+    for bulklat in root.iter("c"):
         bulklat.attrib["scale"] = str(s)
     
     scale_fol = "{}scale={:6.4f}/".format(outfol, s)

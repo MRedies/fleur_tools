@@ -120,9 +120,9 @@ def plot_EOS(ax):
         Ep -= np.min(Ep)
         
         if("inbuild" in fol or "LO" in fol or "cut_0.0" in fol):
-            ax.plot(xs, Ep, 'C{}-.'.format(c_num),lw=3, label='{} = {:8.6f}'.format(fol, mini))
+            ax.plot(xs, Ep, 'C{}-.'.format(c_num),lw=3, label='{} = {:5.3f}'.format(fol, mini))
         else:
-            ax.plot(xs, Ep, 'C{}'.format(c_num), label='{} = {:8.6f}'.format(fol, mini))
+            ax.plot(xs, Ep, 'C{}'.format(c_num), label='{} = {:5.3f}'.format(fol, mini))
 
 
         if("inbuild" in fol or "LO" in fol or "cut_0.0" in fol):
@@ -134,7 +134,8 @@ def plot_EOS(ax):
 
     ax.set_xlabel("scale")
     ax.set_ylabel("E in Hartree")
-    ax.legend()
+    leg = ax.legend()
+    leg.get_frame().set_alpha(1.0)
 
     if(M is not None):
         s_min, s_max = ax.get_xlim()
@@ -157,10 +158,9 @@ def plot_xc(ax):
         ax.legend()
 
 
-f, ax1 = plt.subplots(1,1, figsize=(8,6))
+f, ax1 = plt.subplots(1,1, figsize=(6,6))
 
 plot_EOS(ax1)
-#plot_xc(ax2)
-
+ax1.set_title("Cu Bulk")
 plt.savefig("EOS.pdf")
-plt.show()
+plt.close()
