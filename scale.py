@@ -39,7 +39,7 @@ tree = ET.parse(infol + "inp.xml")
 root = tree.getroot()
 
 for scfloop in root.iter("scfLoop"):
-    scfloop.attrib["itmax"] = str(99)
+    scfloop.attrib["itmax"] = str(p.itmax)
 
 
 for s in scale:
