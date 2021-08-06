@@ -1,7 +1,7 @@
 #!/Local/tmp/bin/anaconda3/bin/python
 import xml.etree.ElementTree as ET
 import argparse
-import numpy as np
+import numpy as npsui
 import os
 from shutil import copyfile
 
@@ -33,8 +33,6 @@ if(len(p.outfol) == 0 or p.outfol[-1] == "/"):
 else:
     outfol = p.outfol + "/"
 
-has_sym = os.path.isfile(infol + "sym.out")
-
 tree = ET.parse(infol + "inp.xml")
 root = tree.getroot()
 
@@ -51,8 +49,5 @@ for s in scale:
         os.mkdir(scale_fol)
     except:
         print("creation of {} failed".format(scale_fol))
-    
-    if(has_sym):
-        copyfile("sym.out", "{}sym.out".format(scale_fol))
     
     tree.write("{}inp.xml".format(scale_fol))
