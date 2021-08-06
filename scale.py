@@ -13,7 +13,7 @@ def parse_stuff():
     parser.add_argument("-n", type=int, default = 7, help="number of steps")
     parser.add_argument("--infol", type=str, default="", help="input folder")
     parser.add_argument("--outfol", type=str, default="", help="output folder")
-    parser.add_argument("--itmax", type=int, default=99, help="itmax in fleur")
+    parser.add_argument("--itmax", type=int, default=15, help="itmax in fleur")
 
     args = parser.parse_args()
     
